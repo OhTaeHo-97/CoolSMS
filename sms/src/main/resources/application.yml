@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: sms
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+
+coolsms:
+  api:
+    key: ${COOL_SMS_API_KEY}
+    secret: ${COOL_SMS_SECRET_KEY}
+  number:
+    from: ${COOL_SMS_FROM_NUMBER}
+  url: ${COOL_SMS_URL}
